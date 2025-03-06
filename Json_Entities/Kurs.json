@@ -1,0 +1,25 @@
+{
+    "Kurs": [
+        {
+            "kursId": 101,
+            "name": "Einführung in die Informatik",
+            "startdatum": "01.03.2025",
+            "enddatum": "30.06.2025",
+            "schluessel": "INF-2025-01",
+            "status": "Aktiv",
+            "anzahl": 25,
+            "modulId": 501
+        },
+        {
+            "kursId": 102,
+            "name": "Datenbanken Grundlagen",
+            "startdatum": "15.04.2025",
+            "enddatum": "15.08.2025",
+            "schluessel": "DB-2025-02",
+            "status": "Inaktiv",
+            "anzahl": 30,
+            "modulId": 502
+        }
+    ]
+}
+

@@ -1,0 +1,11 @@
+{
+    "Vorlesung": [
+        {
+            "vorlesungId": 101,
+            "kursId": 2024,
+            "titel": "Einführung in die Informatik",
+            "inhalt": "Grundlagen der Programmierung, Algorithmen und Datenstrukturen",
+            "dauer": "90 Minuten"
+        }
+    ]
+}

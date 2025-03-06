@@ -1,0 +1,19 @@
+{
+    "Modul": [
+        {
+            "modulID": 1,
+            "name": "Einführung in die Programmierung",
+            "reihenfolge": 1
+        },
+        {
+            "modulID": 2,
+            "name": "Datenbanken und SQL",
+            "reihenfolge": 2
+        },
+        {
+            "modulID": 3,
+            "name": "Webentwicklung mit HTML und CSS",
+            "reihenfolge": 3
+        }
+    ]
+}
