@@ -1,0 +1,15 @@
+{
+    "Benutzer": [
+        {
+            "benutzerId": "Integer",
+            "name": "String",
+            "vorname": "String",
+            "anmeldename": "String",
+            "email": "String",
+            "passwort": "String",
+            "anmeldedatum": "Datum (DD.MM.YYYY)",
+            "profilbild": "String (URL oder Platzhalter)",
+            "geschlecht": "String (z. B. 'Männlich', 'Weiblich', 'Divers')"
+        }
+    ]
+}
