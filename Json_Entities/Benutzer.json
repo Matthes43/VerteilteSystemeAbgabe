@@ -2,14 +2,14 @@
     "Benutzer": [
         {
             "benutzerId": 1,
-                    "name": "Hammermeister",
-                    "vorname": "Nikita",
-                    "anmeldename": "hammermeister.ni.a23",
-                    "email": "hammermeister.ni.a23@dh-karlsruhe.de",
-                    "passwort": "testNikita",
-                    "anmeldedatum": "2023.10.04",
-                    "profilbild": "Platzhalter",
-                    "geschlecht": "Männlich"
+            "name": "Hammermeister",
+            "vorname": "Nikita",
+            "anmeldename": "hammermeister.ni.a23",
+            "email": "hammermeister.ni.a23@dh-karlsruhe.de",
+            "passwort": "testNikita",
+            "anmeldedatum": "2023.10.04",
+            "profilbild": "Platzhalter",
+            "geschlecht": "Männlich"
         }
     ]
 }
