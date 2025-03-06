@@ -1,0 +1,20 @@
+{
+    "Einschreibung": [
+        {
+            "einschreibungsId": 101,
+            "benutzerId": 2023,
+            "kursId": 305,
+            "einschreibedatum": "15.02.2024",
+            "status": "Aktiv",
+            "rolle": "Teilnehmer"
+        },
+        {
+            "einschreibungsId": 102,
+            "benutzerId": 2024,
+            "kursId": 308,
+            "einschreibedatum": "20.01.2024",
+            "status": "Inaktiv",
+            "rolle": "Gast"
+        }
+    ]
+}
