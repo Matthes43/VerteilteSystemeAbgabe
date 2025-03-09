@@ -1,0 +1,11 @@
+{
+    "Assignment": [
+        {
+            "assignmentId": 1,
+            "kursId": 101,
+            "name": "name",
+            "aufgabenstellung": "text",
+            "abgabefrist": "29.06.2025"
+        }
+    ]
+}

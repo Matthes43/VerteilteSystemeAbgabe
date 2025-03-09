@@ -1,0 +1,10 @@
+{
+    "Bewertung": [
+        {
+            "bewertungsId": 500,
+            "klausurId": 20,
+            "assignmentId": 1,
+            "benutzerId": 1
+        }
+    ]
+}

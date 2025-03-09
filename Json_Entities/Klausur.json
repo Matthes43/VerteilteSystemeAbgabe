@@ -1,0 +1,10 @@
+{
+    "Klausur": [
+        {
+            "klausurId": 20,
+            "kursId": 101,
+            "titel": "name",
+            "dauer": 90
+        }
+    ]
+}

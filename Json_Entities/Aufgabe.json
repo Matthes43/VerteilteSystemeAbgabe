@@ -1,0 +1,11 @@
+{
+    "Aufgabe": [
+        {
+            "aufgabenId": 1,
+            "fragentyp": "text",
+            "name": "name",
+            "punkte": 50,
+            "klausurId": 20
+        }
+    ]
+}
