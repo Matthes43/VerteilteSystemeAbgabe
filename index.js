@@ -16,35 +16,65 @@
 //     ( URL: www.xyz.com/listen )
 //     ( URI: www.xyz.com/einkaufsliste/1 )
 
-const express = require('express');
-const { todo } = require('node:test');
+import express from "express";
+
+//import der "Datenbank"
+import { Low } from "lowdb";
+
+//import des JSON-Adapters, um Dateien zu laden
+import { JSONFile } from "lowdb/node";
+
+// Referenzieren der Datei, die die Daten specihern soll
+const adapter = new JSONFile("db.json");
+
+// Erzeugen der Datenbank mit der Referenz der Persistenzschicht und Default-Daten
+const db = new Low(adapter, { todos: [] });
+
+// Initialisierung der Datenbank, um existierende Daten zu lesen:
+// Asynchrone Funktion: Dauer der Fnktion unbekannt!
+// während die Async-Funtkion auf Ergebnisse wartet, kann Programm fortgesetzt werden
+async function initDB() {
+    // lesen, um existierende Daten aus der JSON-Datei (db.json) einzulesen
+    // Problem: Datenzugriff u.U. sehr langsam --> Dauer ist nicht bekannt
+    // --> Nicht den Programmfluss unterbrechen!
+
+    // unbekannte Dauer der Leseoperation: await-Schlüsselwort!
+    await db.read();
+
+    // keine Daten in der Datei gelesen:
+    if(!db.data) {
+        db.data = { todos: [] };
+    }
+    await db.write();
+}
+
+initDB();
 
 // HTTP-Server initialisieren
 const server = express();
 server.use(express.json());
 
-// Testdaten anlegen
-let todos = [
-    {id: 1, task: "Einkaufen", completed: false},
-    {id: 2, task: "Essen kochen", completed: false}
-]
-
 // Todos abrufen (HTTP GET)
 // req: Anfrage an den Server
 // res: Antwort des Servers
-server.get("/todos", (req, res) => {
-    res.json(todos);
+server.get("/todos", async (req, res) => {
+    await db.read();
+    res.json(db.data.todos);
 })
 
 // neues Item hinzufügen (HTTP POST)
-server.post("/todos", (req, res) => {
+server.post("/todos",async (req, res) => {
+    await db.read();
     const senData = req.body;
     const newTodo = {
         id: todos.length + 1,
         task: senData.task,
         completed: false
-    }
-    todos.push(newTodo);
+    };
+    // Zugriff auf den Schlüssel "todos"
+    db.data.todos.push(newTodo);
+    // Auch wieder speichern
+    await db.write();
     res.json(newTodo);
 })
 
@@ -64,20 +94,12 @@ server.put("/todos/:id", (req, res) => {
 })
 
 // Item löschen (HTTP DELETE)
-server.delete("/todos/:id", (req, res) => {
+server.delete("/todos/:id", async (req, res) => {
+    await db.read();
     const todoId = parseInt(req.params.id);
-    const indexOfItemToDelete = todos.findIndex(todo => todo.id === todoId);
-
-    // Index nicht gefunden --> Anfrage abbrechen
-    if(indexOfItemToDelete === -1) {
-        return res.status(404).send("Item not found");
-    }
-
-    // löschen des Elements mit index, löscht alle Elemente ab diesem Index
-    // angegeben durch zweiten Parameter (1)
-    todos.splice(indexOfItemToDelete, 1);
-
-    res.status(204).send("Deleted");
+    db.data.todos = db.data.todos.filter((todo) => todo.id !== todoId);
+    await db.write();
+    res.status(204).send();
 })
 
 server.listen(3000, () => {
