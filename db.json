@@ -3,7 +3,7 @@
     {
       "id": 1,
       "task": "lernen",
-      "completed": false
+      "completed": true
     }
   ]
 }

@@ -79,9 +79,10 @@ server.post("/todos",async (req, res) => {
 })
 
 // Update von Daten (HTTP PUT)
-server.put("/todos/:id", (req, res) => {
+server.put("/todos/:id",async (req, res) => {
+    await db.read();
     const todoId = parseInt(req.params.id);
-    const itemToUpdate = todos.find(todo => todo.id === todoId);
+    const itemToUpdate = db.data.todos.find(todo => todo.id === todoId);
     
     // Item nicht gefunden --> Anfrage abbrechen
     if(!itemToUpdate) {
@@ -89,6 +90,8 @@ server.put("/todos/:id", (req, res) => {
     }
 
     itemToUpdate.completed = true;
+
+    await db.write();
     // immer das geänderte Objekt zurückgeben
     res.json(itemToUpdate);
 })
