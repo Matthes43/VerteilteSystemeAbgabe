@@ -82,18 +82,19 @@ server.post("/todos",async (req, res) => {
 server.put("/todos/:id",async (req, res) => {
     await db.read();
     const todoId = parseInt(req.params.id);
-    const itemToUpdate = db.data.todos.find(todo => todo.id === todoId);
+    const itemToUpdate = db.data.todos.findIndex((todo) => todo.id === todoId);
+    const updatedTodo = req.body;
     
-    // Item nicht gefunden --> Anfrage abbrechen
-    if(!itemToUpdate) {
-        return res.status(404).send("Item not found");
+    if(itemToUpdate !== -1) {
+        // ... --> Spread-Operator: zieht die Properties aus dem Objekt: { key: value}
+        // ...{key: value } --> key: value 
+        // keine Validierung
+        db.data.todos[itemToUpdate] = { ...updatedTodo, ...db.data.todos[itemToUpdate]};
+        await db.write();
+        res.json(db.data.todos[itemToUpdate]);
+    } else {
+        res.status(404).json({ message : "item not found"})
     }
-
-    itemToUpdate.completed = true;
-
-    await db.write();
-    // immer das geänderte Objekt zurückgeben
-    res.json(itemToUpdate);
 })
 
 // Item löschen (HTTP DELETE)
