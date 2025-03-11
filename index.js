@@ -67,7 +67,7 @@ server.post("/todos",async (req, res) => {
     await db.read();
     const senData = req.body;
     const newTodo = {
-        id: todos.length + 1,
+        id: db.data.todos.length + 1,
         task: senData.task,
         completed: false
     };
