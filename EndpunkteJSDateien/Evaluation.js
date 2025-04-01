@@ -20,7 +20,7 @@ await initDB();
 
 router.get("", async (req, res) => {
     await db.read();
-    res.json(db.data.Evaluation);
+    res.json(db.data.evaluationen);
 });
 
 router.post("", async (req, res) => {
@@ -32,11 +32,11 @@ router.post("", async (req, res) => {
     }
 
     const newEntry = {
-        id: db.data.Evaluation.length + 1,
+        id: db.data.evaluationen.length + 1,
         ...newEvaluation
     };
 
-    db.data.Evaluation.push(newEntry);
+    db.data.evaluationen.push(newEntry);
     await db.write();
     res.json(newEntry);
 });
@@ -44,28 +44,28 @@ router.post("", async (req, res) => {
 router.put("/:id", async (req, res) => {
     await db.read();
     const evaluationId = parseInt(req.params.id);
-    const itemToUpdate = db.data.Evaluation.findIndex(evaluation => evaluation.id === evaluationId);
+    const itemToUpdate = db.data.evaluationen.findIndex(evaluation => evaluation.evaluationId === evaluationId);
 
     if (itemToUpdate === -1) {
         return res.status(404).json({ message: "Evaluation nicht gefunden" });
     }
 
     db.data.Evaluation[itemToUpdate] = {
-        ...db.data.Evaluation[itemToUpdate],
+        ...db.data.evaluationen[itemToUpdate],
         ...req.body
     };
     await db.write();
-    res.json(db.data.Evaluation[itemToUpdate]);
+    res.json(db.data.evaluationen[itemToUpdate]);
 });
 
 router.delete("/:id", async (req, res) => {
     await db.read();
     const evaluationId = parseInt(req.params.id);
-    const initialLength = db.data.Evaluation.length;
+    const initialLength = db.data.evaluationen.length;
 
-    db.data.Evaluation = db.data.Evaluation.filter(evaluation => evaluation.id !== evaluationId);
+    db.data.evaluationen = db.data.evaluationen.filter(evaluation => evaluation.evaluationId !== evaluationId);
 
-    if (db.data.Evaluation.length === initialLength) {
+    if (db.data.evaluationen.length === initialLength) {
         return res.status(404).json({ message: "Evaluation nicht gefunden" });
     }
 

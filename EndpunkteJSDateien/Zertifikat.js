@@ -44,7 +44,7 @@ router.post("", async (req, res) => {
 router.put("/:id", async (req, res) => {
     await db.read();
     const zertifikatId = parseInt(req.params.id);
-    const itemToUpdate = db.data.zertifikate.findIndex(zertifikat => zertifikat.id === zertifikatId);
+    const itemToUpdate = db.data.zertifikate.findIndex(zertifikat => zertifikat.zertifikatId === zertifikatId);
 
     if (itemToUpdate === -1) {
         return res.status(404).json({ message: "Zertifikat nicht gefunden" });
@@ -63,7 +63,7 @@ router.delete("/:id", async (req, res) => {
     const zertifikatId = parseInt(req.params.id);
     const initialLength = db.data.zertifikate.length;
 
-    db.data.zertifikate = db.data.zertifikate.filter(zertifikate => zertifikate.id !== zertifikatId);
+    db.data.zertifikate = db.data.zertifikate.filter(zertifikate => zertifikate.zertifikatId !== zertifikatId);
 
     if (db.data.zertifikate.length === initialLength) {
         return res.status(404).json({ message: "Zertifikat nicht gefunden" });

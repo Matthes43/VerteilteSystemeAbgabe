@@ -7,6 +7,14 @@
     {
       "benachrichtigungId": 5,
       "nachricht": "Welt"
+    },
+    {
+      "benachrichtigungId": 6,
+      "nachricht": "Hallo Welt"
+    },
+    {
+      "benachrichtigungId": 7,
+      "nachricht": "Hallo Welt"
     }
   ]
 }

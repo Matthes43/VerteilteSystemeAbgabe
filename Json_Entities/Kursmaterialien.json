@@ -7,6 +7,30 @@
       "typ": "text",
       "größe": "20kb",
       "uploadDatum": "01.04.2025"
+    },
+    {
+      "materialId": 5,
+      "kursId": 1025,
+      "name": "Hammermeister",
+      "typ": "text",
+      "größe": "20kb",
+      "uploadDatum": "01.04.2025"
+    },
+    {
+      "materialId": 6,
+      "kursId": 1026,
+      "name": "Hammermeister",
+      "typ": "text",
+      "größe": "20kb",
+      "uploadDatum": "01.04.2025"
+    },
+    {
+      "materialId": 7,
+      "kursId": 1027,
+      "name": "Hammermeister",
+      "typ": "text",
+      "größe": "20kb",
+      "uploadDatum": "01.04.2025"
     }
   ]
 }
