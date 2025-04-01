@@ -44,7 +44,7 @@ router.post("", async (req, res) => {
 router.put("/:id", async (req, res) => {
     await db.read();
     const studentID = parseInt(req.params.id);
-    const itemToUpdate = db.data.studenten.findIndex(student => student.id === studentID);
+    const itemToUpdate = db.data.studenten.findIndex(student => student.studentId === studentID);
     
     if (itemToUpdate === -1) {
         return res.status(404).json({ message: "Student nicht gefunden" });
