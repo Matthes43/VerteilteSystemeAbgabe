@@ -6,12 +6,12 @@ const filePath = "./Json_Entities/Zertifikat.json";
 
 const router = express.Router();
 const adapter = new JSONFile(filePath);
-const db = new Low(adapter, { Zertifikat: [] });
+const db = new Low(adapter, { zertifikate: [] });
 
 async function initDB() {
     await db.read();
     if (!db.data) {
-        db.data = { Zertifikat: [] };
+        db.data = { zertifikate: [] };
     }
     await db.write();
 }
@@ -20,7 +20,7 @@ await initDB();
 
 router.get("", async (req, res) => {
     await db.read();
-    res.json(db.data.Zertifikat);
+    res.json(db.data.zertifikate);
 });
 
 router.post("", async (req, res) => {
