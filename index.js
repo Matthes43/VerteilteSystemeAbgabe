@@ -7,6 +7,7 @@ import assignmentRoutes from "./EndpunkteJSDateien/Assignment.js";
 import aufgabenRoutes from "./EndpunkteJSDateien/Aufgabe.js";
 import bewertungenRoutes from "./EndpunkteJSDateien/Bewertung.js";
 import klausurenRoutes from "./EndpunkteJSDateien/Klausur.js";
+import modulRoutes from "./EndpunkteJSDateien/Modul.js";
 
 const server = express();
 server.use(express.json());
@@ -19,6 +20,7 @@ server.use("/assignments", assignmentRoutes);
 server.use("/aufgaben", aufgabenRoutes);
 server.use("/bewertungen", bewertungenRoutes);
 server.use("/klausuren", klausurenRoutes);
+server.use("/module", modulRoutes);
 
 server.listen(3000, () => {
     console.log("Server listening...");

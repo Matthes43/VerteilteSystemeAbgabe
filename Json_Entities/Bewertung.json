@@ -1,16 +1,16 @@
 {
-    "Bewertung": [
-        {
-            "bewertungsId": 500,
-            "klausurId": 20,
-            "assignmentId": 1,
-            "benutzerId": 1
-        },
-        {
-            "bewertungsId": 500,
-            "klausurId": 35,
-            "assignmentId": 5,
-            "benutzerId": 2
-        }
-    ]
+  "Bewertung": [
+    {
+      "bewertungsId": 500,
+      "klausurId": 20,
+      "assignmentId": 1,
+      "benutzerId": 1
+    },
+    {
+      "bewertungsId": 500,
+      "klausurId": 35,
+      "assignmentId": 5,
+      "benutzerId": 2
+    }
+  ]
 }
