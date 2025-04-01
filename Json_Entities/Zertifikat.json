@@ -1,8 +1,8 @@
 {
-    "Zertifikat": [
-        {
-            "zertifikatId": 1,
-            "kursId": 101
-        }
-    ]
+  "Zertifikat": [
+    {
+      "zertifikatId": 1,
+      "kursId": 101
+    }
+  ]
 }

@@ -1,10 +1,8 @@
 {
-    "Evaluation": [
-        {
-            "studentId": 3,
-            "kurse": [
-                
-            ]
-        }
-    ]
+  "Evaluation": [
+    {
+      "studentId": 3,
+      "kurse": []
+    }
+  ]
 }

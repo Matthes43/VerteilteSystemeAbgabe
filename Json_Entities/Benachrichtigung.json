@@ -1,13 +1,12 @@
 {
-    "Benachrichtigung": [
-        {
-            "benachrichtigungId": 4,
-            "nachricht": "Hallo"
-        },
-        {
-            "benachrichtigungId": 5,
-            "nachricht": "Welt"
-        }
-
-    ]
+  "Benachrichtigung": [
+    {
+      "benachrichtigungId": 4,
+      "nachricht": "Hallo"
+    },
+    {
+      "benachrichtigungId": 5,
+      "nachricht": "Welt"
+    }
+  ]
 }

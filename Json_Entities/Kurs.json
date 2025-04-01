@@ -1,25 +1,24 @@
 {
-    "kurse": [
-        {
-            "kursId": 1011,
-            "modulId": 101,
-            "name": "Einführung in die Wirtschaftsinformatik",
-            "startdatum": "01.10.2023",
-            "enddatum": "31.12.2023",
-            "schluessel": "EW2023",
-            "status": "Inaktiv",
-            "anzahl": 35
-        },
-        {
-            "kursId": 1051,
-            "modulId": 105,
-            "name": "Datenbanken I",
-            "startdatum": "01.02.2025",
-            "enddatum": "28.04.2025",
-            "schluessel": "Xegiqone$@",
-            "status": "Aktiv",
-            "anzahl": 30
-        }
-    ]
+  "kurse": [
+    {
+      "kursId": 1011,
+      "modulId": 101,
+      "name": "Einführung in die Wirtschaftsinformatik",
+      "startdatum": "01.10.2023",
+      "enddatum": "31.12.2023",
+      "schluessel": "EW2023",
+      "status": "Inaktiv",
+      "anzahl": 35
+    },
+    {
+      "kursId": 1051,
+      "modulId": 105,
+      "name": "Datenbanken I",
+      "startdatum": "01.02.2025",
+      "enddatum": "28.04.2025",
+      "schluessel": "Xegiqone$@",
+      "status": "Aktiv",
+      "anzahl": 30
+    }
+  ]
 }
-

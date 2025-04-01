@@ -1,16 +1,16 @@
 {
-    "einschreibungen": [
-        {
-            "einschreibungsId": 101,
-            "benutzerId": 1,
-            "kursId": 1011,
-            "einschreibedatum": "01.10.2023"
-        },
-        {
-            "einschreibungsId": 102,
-            "benutzerId": 2,
-            "kursId": 1051,
-            "einschreibedatum": "07.02.2025"
-        }
-    ]
+  "einschreibungen": [
+    {
+      "einschreibungsId": 101,
+      "benutzerId": 1,
+      "kursId": 1011,
+      "einschreibedatum": "01.10.2023"
+    },
+    {
+      "einschreibungsId": 102,
+      "benutzerId": 2,
+      "kursId": 1051,
+      "einschreibedatum": "07.02.2025"
+    }
+  ]
 }
