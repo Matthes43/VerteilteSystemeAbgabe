@@ -1,8 +1,8 @@
 {
-    "Student": [
-        {
-            "studiengang": "Wirtschaftsinformatik",
-            "immatrikulationsTag": "2023.10.04"
-        }
-    ]
+  "studenten": [
+    {
+      "studiengang": "Wirtschaftsinformatik",
+      "immatrikulationsTag": "2023.10.04"
+    }
+  ]
 }
