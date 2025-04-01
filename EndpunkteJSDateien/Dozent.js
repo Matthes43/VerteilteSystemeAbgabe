@@ -61,7 +61,7 @@ router.delete("/:id", async (req, res) => {
     const dozentID = parseInt(req.params.id);
     const initialLength = db.data.dozenten.length;
     
-    db.data.dozenten = db.data.dozenten.filter(dozent => dozent.id !== dozentID);
+    db.data.dozenten = db.data.dozenten.filter(dozent => dozent.dozentId !== dozentID);
 
     if (db.data.dozenten.length === initialLength) {
         return res.status(404).json({ message: "Student nicht gefunden" });

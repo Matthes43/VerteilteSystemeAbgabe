@@ -1,9 +1,15 @@
 {
   "studenten": [
     {
-      "studentId": 3,
-      "benutzerId": 5,
+      "studentId": 1,
+      "benutzerId": 1,
       "studiengang": "Wirtschaftsinformatik",
+      "immatrikulationsTag": "2023.10.04"
+    },
+    {
+      "studentId": 2,
+      "benutzerId": 2,
+      "studiengang": "Informatik",
       "immatrikulationsTag": "2023.10.04"
     }
   ]
