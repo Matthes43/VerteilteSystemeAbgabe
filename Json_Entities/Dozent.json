@@ -1,31 +1,17 @@
 {
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-    "Dozent": [
-        {
-            "dozentId": 7,
-            "benutzerId": 3,
-            "kurse": [{
-                    "kursId": 1012
-                },{
-                    "kursId": 1192
-                }
-            ],
-            "fachgebiet": "Verteilte Systeme"
-        }
-    ]
-=======
-=======
->>>>>>> Stashed changes
-  "Dozent": [
+  "dozenten": [
     {
       "dozentId": 7,
       "benutzerId": 3,
+      "kurse": [
+        {
+          "kursId": 1012
+        },
+        {
+          "kursId": 1192
+        }
+      ],
       "fachgebiet": "Verteilte Systeme"
     }
   ]
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
 }
