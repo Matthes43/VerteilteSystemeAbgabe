@@ -45,7 +45,7 @@ router.post("", async (req, res) => {
 router.put("/:id", async (req, res) => {
     await db.read();
     const benutzerID = parseInt(req.params.id);
-    const itemToUpdate = db.data.benutzer.findIndex(benutzer => benutzer.id === benutzerID);
+    const itemToUpdate = db.data.benutzer.findIndex(benutzer => benutzer.benutzerId === benutzerID);
     
     if (itemToUpdate === -1) {
         return res.status(404).json({ message: "Benutzer nicht gefunden" });

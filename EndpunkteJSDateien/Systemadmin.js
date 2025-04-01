@@ -45,7 +45,7 @@ router.post("", async (req, res) => {
 router.put("/:id", async (req, res) => {
     await db.read();
     const systemadminID = parseInt(req.params.id);
-    const itemToUpdate = db.data.systemadmins.findIndex(systemadmin => systemadmin.id === systemadminID);
+    const itemToUpdate = db.data.systemadmins.findIndex(systemadmin => systemadmin.systemadminId === systemadminID);
     
     if (itemToUpdate === -1) {
         return res.status(404).json({ message: "Systemadmin nicht gefunden" });
