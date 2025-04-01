@@ -45,8 +45,8 @@ router.post("", async (req, res) => {
 
 router.put("/:id", async (req, res) => {
     await db.read();
-    const einschreibungID = parseInt(req.params.id);
-    const itemToUpdate = db.data.einschreibungen.findIndex(einschreibung => einschreibung.id === einschreibungID);
+    const einschreibungsId = parseInt(req.params.id);
+    const itemToUpdate = db.data.einschreibungen.findIndex(einschreibung => einschreibung.einschreibungsId === einschreibungsId);
 
     if (itemToUpdate === -1) {
         return res.status(404).json({ message: "Einschreibung nicht gefunden" });
