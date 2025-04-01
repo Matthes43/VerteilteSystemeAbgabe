@@ -1,7 +1,7 @@
 {
   "dozenten": [
     {
-      "dozentId": 7,
+      "dozentId": 1,
       "benutzerId": 3,
       "kurse": [
         {
@@ -12,6 +12,19 @@
         }
       ],
       "fachgebiet": "Verteilte Systeme"
+    },
+    {
+      "dozentId": 2,
+      "benutzerId": 3,
+      "kurse": [
+        {
+          "kursId": 1005
+        },
+        {
+          "kursId": 1456
+        }
+      ],
+      "fachgebiet": "Mobile Applikationen"
     }
   ]
 }
