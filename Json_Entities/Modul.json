@@ -1,19 +1,14 @@
 {
     "Modul": [
         {
-            "modulID": 1,
-            "name": "Einführung in die Programmierung",
+            "modulID": 101,
+            "name": "Methoden der Wirtschaftsinformatik I",
+            "reihenfolge": 6
+        },
+        {
+            "modulID": 105,
+            "name": "Datenbanken",
             "reihenfolge": 1
-        },
-        {
-            "modulID": 2,
-            "name": "Datenbanken und SQL",
-            "reihenfolge": 2
-        },
-        {
-            "modulID": 3,
-            "name": "Webentwicklung mit HTML und CSS",
-            "reihenfolge": 3
         }
     ]
 }
