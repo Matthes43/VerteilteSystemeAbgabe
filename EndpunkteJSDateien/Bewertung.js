@@ -61,7 +61,7 @@ router.delete("/:id", async (req, res) => {
     const bewertungenID = parseInt(req.params.id);
     const initialLength = db.data.bewertungen.length;
     
-    db.data.bewertungen = db.data.bewertungen.filter(bewertung => bewertung.id !== bewertungenID);
+    db.data.bewertungen = db.data.bewertungen.filter(bewertung => bewertung.bewertungsId !== bewertungenID);
 
     if (db.data.bewertungen.length === initialLength) {
         return res.status(404).json({ message: "Bewertung nicht gefunden" });
