@@ -71,7 +71,7 @@ router.delete("/:id", async (req, res) => {
     const kursID = parseInt(req.params.id);
     const initialLength = db.data.kurse.length;
     
-    db.data.kurse = db.data.module.filter(kurs => kurs.id !== kursID);
+    db.data.kurse = db.data.kurse.filter(kurs => kurs.kursId !== kursID);
 
     if (db.data.kurse.length === initialLength) {
         return res.status(404).json({ message: "Modul nicht gefunden" });
