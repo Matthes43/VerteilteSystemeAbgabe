@@ -35,7 +35,6 @@ server.use("/evaluationen", evaluationRoutes);
 server.use("/benachrichtigungen", benachrichtigungRoutes);
 server.use("/zertifikate", zertifikatRoutes);
 server.use("/vorlesungen", vorlesungRoutes);
-server.use("/module", modulRoutes);
 server.use("/einschreibungen", einschreibungRoutes);
 
 server.listen(3000, () => {
