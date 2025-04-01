@@ -14,7 +14,6 @@ import evaluationRoutes from "./EndpunkteJSDateien/Evaluation.js";
 import benachrichtigungRoutes from "./EndpunkteJSDateien/Benachrichtigung.js";
 import zertifikatRoutes from "./EndpunkteJSDateien/Zertifikat.js";
 import vorlesungRoutes from "./EndpunkteJSDateien/Vorlesung.js";
-import modulRoutes from "./EndpunkteJSDateien/Modul.js";
 import einschreibungRoutes from "./EndpunkteJSDateien/Einschreibung.js";
 
 const server = express();
