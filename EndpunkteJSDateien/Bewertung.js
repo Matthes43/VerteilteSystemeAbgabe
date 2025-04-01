@@ -25,19 +25,20 @@ router.get("", async (req, res) => {
 
 router.post("", async (req, res) => {
     await db.read();
-    const senData = req.body;
+    const bewertungsData = req.body;
 
-    if (!senData.task) {
-        return res.status(400).json({ message: "Task ist erforderlich!" });
+    if (!bewertungsData.bewertungsId || !bewertungsData.klausurId || !bewertungsData.assignmentId || !bewertungsData.benutzerId ) {
+        return res.status(400).json({ message: "bewertungsId, klausurId, assignmentId und benutzerId sind erforderlich!" });
     }
 
-    const newAufgabe = {
-        id: db.data.bewertungen.length + 1,
-        task: senData.task,
-        completed: false
+    const newAssignment = {
+        bewertungsId: bewertungsData.bewertungsId,
+        klausurId: bewertungsData.klausurId,
+        assignmentId: bewertungsData.assignmentId,
+        benutzerId: bewertungsData.benutzerId,
     };
 
-    db.data.bewertungen.push(newBewertung);
+    db.data.bewertungs.push(newBewertung);
     await db.write();
     res.json(newBewertung);
 });

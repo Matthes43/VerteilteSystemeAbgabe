@@ -25,19 +25,21 @@ router.get("", async (req, res) => {
 
 router.post("", async (req, res) => {
     await db.read();
-    const senData = req.body;
+    const aufgabenData = req.body;
 
-    if (!senData.task) {
-        return res.status(400).json({ message: "Task ist erforderlich!" });
+    if (!aufgabenData.aufgabenId || !aufgabenData.fragentyp || !aufgabenData.name || !aufgabenData.punkte || !aufgabenData.klausurId) {
+        return res.status(400).json({ message: "aufgabenId, fragentyp, name, punkte und kursId sind erforderlich!" });
     }
 
-    const newAufgabe = {
-        id: db.data.aufgaben.length + 1,
-        task: senData.task,
-        completed: false
+    const newAssignment = {
+        aufgabenId: aufgabenData.aufgabenId,
+        fragentyp: aufgabentData.fragentyp,
+        name: aufgabenData.name,
+        punkte: aufgabenData.punkte,
+        klausurId: aufgabentData.klausurId
     };
 
-    db.data.assignments.push(newAufgabe);
+    db.data.aufgaben.push(newAufgabe);
     await db.write();
     res.json(newAufgabe);
 });

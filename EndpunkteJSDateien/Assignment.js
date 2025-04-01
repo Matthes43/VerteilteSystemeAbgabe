@@ -25,16 +25,18 @@ router.get("", async (req, res) => {
 
 router.post("", async (req, res) => {
     await db.read();
-    const senData = req.body;
+    const assignmentData = req.body;
 
-    if (!senData.task) {
-        return res.status(400).json({ message: "Task ist erforderlich!" });
+    if (!assignmentData.assignmentId || !assignmentData.kursId || !assignmentData.titel || !assignmentData.aufgabenstellung || !assignmentData.abgabefrist) {
+        return res.status(400).json({ message: "assignmentId, kursId, titel, aufgabenstellung und abgabefrist sind erforderlich!" });
     }
 
     const newAssignment = {
-        id: db.data.assignments.length + 1,
-        task: senData.task,
-        completed: false
+        assignmentId: assignmentData.assignmentId,
+        kursId: assignmentData.kursId,
+        titel: assignmentData.titel,
+        aufgabenstellung: assignmentData.aufgabenstellung,
+        abgabefrist: assignmentData.abgabefrist
     };
 
     db.data.assignments.push(newAssignment);

@@ -25,16 +25,17 @@ router.get("", async (req, res) => {
 
 router.post("", async (req, res) => {
     await db.read();
-    const senData = req.body;
+    const klausurData = req.body;
 
-    if (!senData.task) {
-        return res.status(400).json({ message: "Task ist erforderlich!" });
+    if (!klausurData.klausurId || !klausurData.kursId || !klausurData.titel || !klausurData.dauer ) {
+        return res.status(400).json({ message: "klausurId, kursId, titel und dauer sind erforderlich!" });
     }
 
-    const newAufgabe = {
-        id: db.data.klausuren.length + 1,
-        task: senData.task,
-        completed: false
+    const newAssignment = {
+        klausurId: klausurData.klausurId,
+        kursId: klausurData.kursId,
+        titel: klausurData.titel,
+        dauer: klausurData.dauer,
     };
 
     db.data.klausuren.push(newKlausur);
