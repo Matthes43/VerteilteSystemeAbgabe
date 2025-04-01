@@ -7,7 +7,18 @@ import assignmentRoutes from "./EndpunkteJSDateien/Assignment.js";
 import aufgabenRoutes from "./EndpunkteJSDateien/Aufgabe.js";
 import bewertungenRoutes from "./EndpunkteJSDateien/Bewertung.js";
 import klausurenRoutes from "./EndpunkteJSDateien/Klausur.js";
+<<<<<<< HEAD
 import modulRoutes from "./EndpunkteJSDateien/Modul.js";
+=======
+import kursRoutes from "./EndpunkteJSDateien/Kurs.js";
+import kursmaterialienRoutes from "./EndpunkteJSDateien/Kursmaterialien.js";
+import evaluationRoutes from "./EndpunkteJSDateien/Evaluation.js";
+import benachrichtigungRoutes from "./EndpunkteJSDateien/Benachrichtigung.js";
+import zertifikatRoutes from "./EndpunkteJSDateien/Zertifikat.js";
+import vorlesungRoutes from "./EndpunkteJSDateien/Vorlesung.js";
+import modulRoutes from "./EndpunkteJSDateien/Modul.js";
+import einschreibungRoutes from "./EndpunkteJSDateien/Einschreibung.js";
+>>>>>>> 6b3818270fb89ed6ddb79f18874265c6cbbfc8bd
 
 const server = express();
 server.use(express.json());
@@ -20,7 +31,18 @@ server.use("/assignments", assignmentRoutes);
 server.use("/aufgaben", aufgabenRoutes);
 server.use("/bewertungen", bewertungenRoutes);
 server.use("/klausuren", klausurenRoutes);
+<<<<<<< HEAD
 server.use("/module", modulRoutes);
+=======
+server.use("/kurse", kursRoutes);
+server.use("/kursmaterialien", kursmaterialienRoutes);
+server.use("/evaluationen", evaluationRoutes);
+server.use("/benachrichtigungen", benachrichtigungRoutes);
+server.use("/zertifikate", zertifikatRoutes);
+server.use("/vorlesungen", vorlesungRoutes);
+server.use("/module", modulRoutes);
+server.use("/einschreibungen", einschreibungRoutes);
+>>>>>>> 6b3818270fb89ed6ddb79f18874265c6cbbfc8bd
 
 server.listen(3000, () => {
     console.log("Server listening...");
