@@ -46,7 +46,7 @@ router.post("", async (req, res) => {
 router.put("/:id", async (req, res) => {
     await db.read();
     const bewertungenID = parseInt(req.params.id);
-    const itemToUpdate = db.data.bewertungen.findIndex(bewertung => bewertung.id === bewertungenID);
+    const itemToUpdate = db.data.bewertungen.findIndex(bewertung => bewertung.bewertungsId === bewertungenID);
     
     if (itemToUpdate === -1) {
         return res.status(404).json({ message: "Bewertung nicht gefunden" });
