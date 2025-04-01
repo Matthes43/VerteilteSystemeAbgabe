@@ -1,4 +1,5 @@
 {
+<<<<<<< Updated upstream
     "Dozent": [
         {
             "dozentId": 7,
@@ -12,4 +13,13 @@
             "fachgebiet": "Verteilte Systeme"
         }
     ]
+=======
+  "Dozent": [
+    {
+      "dozentId": 7,
+      "benutzerId": 3,
+      "fachgebiet": "Verteilte Systeme"
+    }
+  ]
+>>>>>>> Stashed changes
 }
