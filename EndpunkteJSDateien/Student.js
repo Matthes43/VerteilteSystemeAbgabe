@@ -23,7 +23,7 @@ router.get("", async (req, res) => {
     res.json(db.data.studenten);
 });
 
-router.post("/studenten", async (req, res) => {
+router.post("", async (req, res) => {
     await db.read();
     const senData = req.body;
 
@@ -42,7 +42,7 @@ router.post("/studenten", async (req, res) => {
     res.json(newStudent);
 });
 
-router.put("/studenten/:id", async (req, res) => {
+router.put("/:id", async (req, res) => {
     await db.read();
     const studentID = parseInt(req.params.id);
     const itemToUpdate = db.data.studenten.findIndex(student => student.id === studentID);
@@ -56,7 +56,7 @@ router.put("/studenten/:id", async (req, res) => {
     res.json(db.data.studenten[itemToUpdate]);
 });
 
-router.delete("/studenten/:id", async (req, res) => {
+router.delete("/:id", async (req, res) => {
     await db.read();
     const studentID = parseInt(req.params.id);
     const initialLength = db.data.studenten.length;
