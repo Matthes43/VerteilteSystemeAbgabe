@@ -9,7 +9,18 @@
             "passwort": "testNikita",
             "anmeldedatum": "2023.10.04",
             "profilbild": "Platzhalter",
-            "geschlecht": "Männlich"
+            "geschlecht": "männlich"
+        },
+        {
+            "benutzerId": 2,
+            "name": "Friemann",
+            "vorname": "Paul",
+            "anmeldename": "friemann.paul.a23",
+            "email": "friemann.paul.a23@dh-karlsruhe.de",
+            "passwort": "testPaul",
+            "anmeldedatum": "2023.10.04",
+            "profilbild": "Platzhalter",
+            "geschlecht": "männlich"
         }
     ]
 }
