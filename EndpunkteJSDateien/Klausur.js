@@ -61,7 +61,7 @@ router.delete("/:id", async (req, res) => {
     const klausurenID = parseInt(req.params.id);
     const initialLength = db.data.klausuren.length;
     
-    db.data.klausuren = db.data.klausuren.filter(klausur => klausur.id !== klausurenID);
+    db.data.klausuren = db.data.klausuren.filter(klausur => klausur.klausurId !== klausurenID);
 
     if (db.data.klausuren.length === initialLength) {
         return res.status(404).json({ message: "Klausur nicht gefunden" });

@@ -59,9 +59,10 @@ router.put("/:id", async (req, res) => {
 router.delete("/:id", async (req, res) => {
     await db.read();
     const modulID = parseInt(req.params.id);
+
     const initialLength = db.data.module.length;
     
-    db.data.module = db.data.module.filter(modul => modul.id !== modulID);
+    db.data.module = db.data.module.filter(modul => modul.modulId !== modulID);
 
     if (db.data.module.length === initialLength) {
         return res.status(404).json({ message: "Modul nicht gefunden" });

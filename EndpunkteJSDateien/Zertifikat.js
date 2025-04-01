@@ -6,12 +6,12 @@ const filePath = "./Json_Entities/Zertifikat.json";
 
 const router = express.Router();
 const adapter = new JSONFile(filePath);
-const db = new Low(adapter, { Zertifikat: [] });
+const db = new Low(adapter, { zertifikate: [] });
 
 async function initDB() {
     await db.read();
     if (!db.data) {
-        db.data = { Zertifikat: [] };
+        db.data = { zertifikate: [] };
     }
     await db.write();
 }
@@ -20,7 +20,7 @@ await initDB();
 
 router.get("", async (req, res) => {
     await db.read();
-    res.json(db.data.Zertifikat);
+    res.json(db.data.zertifikate);
 });
 
 router.post("", async (req, res) => {
@@ -32,11 +32,11 @@ router.post("", async (req, res) => {
     }
 
     const newEntry = {
-        id: db.data.Zertifikat.length + 1,
+        id: db.data.zertifikate.length + 1,
         ...newZertifikat
     };
 
-    db.data.Zertifikat.push(newEntry);
+    db.data.zertifikate.push(newEntry);
     await db.write();
     res.json(newEntry);
 });
@@ -44,28 +44,28 @@ router.post("", async (req, res) => {
 router.put("/:id", async (req, res) => {
     await db.read();
     const zertifikatId = parseInt(req.params.id);
-    const itemToUpdate = db.data.Zertifikat.findIndex(zertifikat => zertifikat.id === zertifikatId);
+    const itemToUpdate = db.data.zertifikate.findIndex(zertifikat => zertifikat.zertifikatId === zertifikatId);
 
     if (itemToUpdate === -1) {
         return res.status(404).json({ message: "Zertifikat nicht gefunden" });
     }
 
-    db.data.Zertifikat[itemToUpdate] = {
-        ...db.data.Zertifikat[itemToUpdate],
+    db.data.zertifikate[itemToUpdate] = {
+        ...db.data.zertifikate[itemToUpdate],
         ...req.body
     };
     await db.write();
-    res.json(db.data.Zertifikat[itemToUpdate]);
+    res.json(db.data.zertifikate[itemToUpdate]);
 });
 
 router.delete("/:id", async (req, res) => {
     await db.read();
     const zertifikatId = parseInt(req.params.id);
-    const initialLength = db.data.Zertifikat.length;
+    const initialLength = db.data.zertifikate.length;
 
-    db.data.Zertifikat = db.data.Zertifikat.filter(zertifikat => zertifikat.id !== zertifikatId);
+    db.data.zertifikate = db.data.zertifikate.filter(zertifikate => zertifikate.zertifikatId !== zertifikatId);
 
-    if (db.data.Zertifikat.length === initialLength) {
+    if (db.data.zertifikate.length === initialLength) {
         return res.status(404).json({ message: "Zertifikat nicht gefunden" });
     }
 
