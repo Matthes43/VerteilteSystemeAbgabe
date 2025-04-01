@@ -49,26 +49,19 @@ router.post("", async (req, res) => {
 
 router.put("/:id", async (req, res) => {
     await db.read();
-    const kursID = parseInt(req.params.id);
-    const itemToUpdate = db.data.kurse.findIndex(kurs => kurs.id === kursID);
-    
+    const kursId = parseInt(req.params.id);
+    const itemToUpdate = db.data.kurse.findIndex(kurs => kurs.kursId === kursId);
+
     if (itemToUpdate === -1) {
         return res.status(404).json({ message: "Kurs nicht gefunden" });
     }
 
-    db.data.kurse[itemToUpdate] = { ...db.data.kurse[itemToUpdate], ...req.body };
+    db.data.kurse[itemToUpdate] = {
+        ...db.data.kurse[itemToUpdate],
+        ...req.body
+    };
     await db.write();
     res.json(db.data.kurse[itemToUpdate]);
-    const kursId = parseInt(req.params.id);
-    const kursToUpdate = db.data.kurse.findIndex(kurs => kurs.id === kursId);
-
-    if (kursToUpdate === -1) {
-        return res.status(404).json({ message: "Kurs nicht gefunden" });
-    }
-
-    db.data.kurse[kursToUpdate] = { ...db.data.kurse[kursToUpdate], ...req.body };
-    await db.write();
-    res.json(db.data.kurse[kursToUpdate]);
 });
 
 router.delete("/:id", async (req, res) => {

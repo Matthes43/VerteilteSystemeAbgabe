@@ -48,7 +48,7 @@ router.post("", async (req, res) => {
 router.put("/:id", async (req, res) => {
     await db.read();
     const vorlesungId = parseInt(req.params.id);
-    const itemToUpdate = db.data.vorlesungen.findIndex(vorlesung => vorlesung.id === vorlesungId);
+    const itemToUpdate = db.data.vorlesungen.findIndex(vorlesung => vorlesung.vorlesungId === vorlesungId);
 
     if (itemToUpdate === -1) {
         return res.status(404).json({ message: "Vorlesung nicht gefunden" });

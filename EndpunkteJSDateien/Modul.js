@@ -44,17 +44,21 @@ router.post("", async (req, res) => {
 
 router.put("/:id", async (req, res) => {
     await db.read();
-    const modulID = parseInt(req.params.id);
-    const itemToUpdate = db.data.module.findIndex(modul => modul.id === modulID);
-    
+    const modulId = parseInt(req.params.id);
+    const itemToUpdate = db.data.module.findIndex(modul => modul.modulId === modulId);
+
     if (itemToUpdate === -1) {
         return res.status(404).json({ message: "Modul nicht gefunden" });
     }
 
-    db.data.module[itemToUpdate] = { ...db.data.module[itemToUpdate], ...req.body };
+    db.data.module[itemToUpdate] = {
+        ...db.data.module[itemToUpdate],
+        ...req.body
+    };
     await db.write();
     res.json(db.data.module[itemToUpdate]);
 });
+
 
 router.delete("/:id", async (req, res) => {
     await db.read();
