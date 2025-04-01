@@ -1,8 +1,8 @@
 {
     "Zertifikat": [
         {
-            "forumId": 1,
-            "kursId": 2024
+            "zertifikatId": 1,
+            "kursId": 101
         }
     ]
 }
