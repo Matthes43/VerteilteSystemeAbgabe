@@ -32,7 +32,7 @@ router.post("", async (req, res) => {
     }
 
     const newAufgabe = {
-        id: db.data.assignments.length + 1,
+        id: db.data.aufgaben.length + 1,
         task: senData.task,
         completed: false
     };
