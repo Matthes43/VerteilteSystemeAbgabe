@@ -61,7 +61,7 @@ router.delete("/:id", async (req, res) => {
     const benutzerID = parseInt(req.params.id);
     const initialLength = db.data.benutzer.length;
     
-    db.data.benutzer = db.data.benutzer.filter(benutzer => benutzer.id !== benutzerID);
+    db.data.benutzer = db.data.benutzer.filter(benutzer => benutzer.benutzerId !== benutzerID);
 
     if (db.data.benutzer.length === initialLength) {
         return res.status(404).json({ message: "Benutzer nicht gefunden" });

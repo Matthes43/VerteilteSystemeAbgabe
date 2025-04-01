@@ -34,7 +34,6 @@ router.post("", async (req, res) => {
     const newStudent = {
         id: db.data.studenten.length + 1,
         task: senData.task,
-        completed: false
     };
 
     db.data.studenten.push(newStudent);
@@ -61,7 +60,7 @@ router.delete("/:id", async (req, res) => {
     const studentID = parseInt(req.params.id);
     const initialLength = db.data.studenten.length;
     
-    db.data.studenten = db.data.studenten.filter(student => student.id !== studentID);
+    db.data.studenten = db.data.studenten.filter(student => student.studentId !== studentID);
 
     if (db.data.studenten.length === initialLength) {
         return res.status(404).json({ message: "Student nicht gefunden" });

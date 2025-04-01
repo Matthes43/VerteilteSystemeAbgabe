@@ -45,7 +45,7 @@ router.post("", async (req, res) => {
 router.put("/:id", async (req, res) => {
     await db.read();
     const materialId = parseInt(req.params.id);
-    const itemToUpdate = db.data.kursmaterialien.findIndex(material => material.id === materialId);
+    const itemToUpdate = db.data.kursmaterialien.findIndex(material => material.materialId === materialId);
 
     if (itemToUpdate === -1) {
         return res.status(404).json({ message: "Kursmaterial nicht gefunden" });
@@ -64,7 +64,7 @@ router.delete("/:id", async (req, res) => {
     const materialId = parseInt(req.params.id);
     const initialLength = db.data.kursmaterialien.length;
 
-    db.data.kursmaterialien = db.data.kursmaterialien.filter(material => material.id !== materialId);
+    db.data.kursmaterialien = db.data.kursmaterialien.filter(material => material.materialId !== materialId);
 
     if (db.data.kursmaterialien.length === initialLength) {
         return res.status(404).json({ message: "Kursmaterial nicht gefunden" });

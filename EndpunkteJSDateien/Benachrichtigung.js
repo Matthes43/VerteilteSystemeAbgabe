@@ -48,7 +48,7 @@ router.put("/:id", async (req, res) => {
     await db.read();
     const benachrichtigungId = parseInt(req.params.id);
     const itemToUpdate = db.data.benachrichtigungen.findIndex(
-        benachrichtigung => benachrichtigung.id === benachrichtigungId
+        benachrichtigung => benachrichtigung.benachrichtigungId === benachrichtigungId
     );
 
     if (itemToUpdate === -1) {
@@ -69,7 +69,7 @@ router.delete("/:id", async (req, res) => {
     const initialLength = db.data.benachrichtigungen.length;
 
     db.data.benachrichtigungen = db.data.benachrichtigungen.filter(
-        benachrichtigung => benachrichtigung.id !== benachrichtigungId
+        benachrichtigung => benachrichtigung.benachrichtigungId !== benachrichtigungId
     );
 
     if (db.data.benachrichtigungen.length === initialLength) {

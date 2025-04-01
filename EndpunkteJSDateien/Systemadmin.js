@@ -61,7 +61,7 @@ router.delete("/:id", async (req, res) => {
     const systemadminID = parseInt(req.params.id);
     const initialLength = db.data.systemadmins.length;
     
-    db.data.systemadmins = db.data.systemadmins.filter(systemadmin => systemadmin.id !== systemadminID);
+    db.data.systemadmins = db.data.systemadmins.filter(systemadmin => systemadmin.systemadminId !== systemadminID);
 
     if (db.data.systemadmins.length === initialLength) {
         return res.status(404).json({ message: "Systemadmin nicht gefunden" });

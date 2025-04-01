@@ -64,7 +64,7 @@ router.delete("/:id", async (req, res) => {
     const vorlesungId = parseInt(req.params.id);
     const initialLength = db.data.vorlesungen.length;
 
-    db.data.vorlesungen = db.data.vorlesungen.filter(vorlesung => vorlesung.id !== vorlesungId);
+    db.data.vorlesungen = db.data.vorlesungen.filter(vorlesung => vorlesung.vorlesungId !== vorlesungId);
 
     if (db.data.vorlesungen.length === initialLength) {
         return res.status(404).json({ message: "Vorlesung nicht gefunden" });
