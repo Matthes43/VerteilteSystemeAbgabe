@@ -1,6 +1,8 @@
 {
     "Dozent": [
         {
+            "dozentId": 7,
+            "benutzerId": 3,
             "fachgebiet": "Verteilte Systeme"
         }
     ]
