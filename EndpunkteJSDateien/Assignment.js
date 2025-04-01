@@ -45,7 +45,7 @@ router.post("", async (req, res) => {
 router.put("/:id", async (req, res) => {
     await db.read();
     const assignmentID = parseInt(req.params.id);
-    const itemToUpdate = db.data.assignments.findIndex(assignment => assignment.id === assignmentID);
+    const itemToUpdate = db.data.assignments.findIndex(assignment => assignment.assignmentId === assignmentID);
     
     if (itemToUpdate === -1) {
         return res.status(404).json({ message: "Assignment nicht gefunden" });
@@ -61,7 +61,7 @@ router.delete("/:id", async (req, res) => {
     const assignmentID = parseInt(req.params.id);
     const initialLength = db.data.assignments.length;
     
-    db.data.assignments = db.data.assignments.filter(assignment => assignment.id !== assignmentID);
+    db.data.assignments = db.data.assignments.filter(assignment => assignment.assignmentId !== assignmentID);
 
     if (db.data.assignments.length === initialLength) {
         return res.status(404).json({ message: "Assignment nicht gefunden" });
