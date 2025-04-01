@@ -3,8 +3,14 @@
         {
             "klausurId": 20,
             "kursId": 101,
-            "titel": "name",
+            "titel": "Hauptklausur Datenbanken",
             "dauer": 90
+        },
+        {
+            "klausurId": 35,
+            "kursId": 102,
+            "titel": "Hauptklausur Wirtschaftsinformatik",
+            "dauer": 120
         }
     ]
 }

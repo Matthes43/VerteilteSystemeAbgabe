@@ -2,10 +2,17 @@
     "Aufgabe": [
         {
             "aufgabenId": 1,
-            "fragentyp": "text",
-            "name": "name",
-            "punkte": 50,
-            "klausurId": 20
+            "fragentyp": "Multile-Choice",
+            "name": "SQL Abfragen",
+            "punkte": 12,
+            "klausurId": 102
+        },
+        {
+            "aufgabenId": 7,
+            "fragentyp": "Frei Text",
+            "name": "Wissenstreppe nach North",
+            "punkte": 15,
+            "klausurId": 101
         }
     ]
 }
