@@ -1,7 +1,10 @@
 {
     "Evaluation": [
         {
-            
+            "studentId": 3,
+            "kurse": [
+                
+            ]
         }
     ]
 }

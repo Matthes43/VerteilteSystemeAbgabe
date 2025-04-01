@@ -3,6 +3,12 @@
         {
             "dozentId": 7,
             "benutzerId": 3,
+            "kurse": [{
+                    "kursId": 1012
+                },{
+                    "kursId": 1192
+                }
+            ],
             "fachgebiet": "Verteilte Systeme"
         }
     ]
