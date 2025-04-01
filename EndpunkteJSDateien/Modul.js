@@ -25,16 +25,16 @@ router.get("", async (req, res) => {
 
 router.post("", async (req, res) => {
     await db.read();
-    const senData = req.body;
+    const moduleData = req.body;
 
-    if (!senData.task) {
-        return res.status(400).json({ message: "Task ist erforderlich!" });
+    if (!moduleData.modulId || !moduleData.name || moduleData.reihenfolge === undefined) {
+        return res.status(400).json({ message: "modulId, name und reihenfolge sind erforderlich!" });
     }
 
     const newModul = {
-        id: db.data.module.length + 1,
-        task: senData.task,
-        completed: false
+        modulId: moduleData.modulId,
+        name: moduleData.name,
+        reihenfolge: moduleData.reihenfolge
     };
 
     db.data.module.push(newModul);

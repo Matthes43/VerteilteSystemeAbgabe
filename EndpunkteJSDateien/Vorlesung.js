@@ -25,22 +25,25 @@ router.get("", async (req, res) => {
 
 router.post("", async (req, res) => {
     await db.read();
-    const newVorlesung = req.body;
+    const vorlesungData = req.body;
 
-    if (!newVorlesung.name || !newVorlesung.dozentId || !newVorlesung.kursId) {
-        return res.status(400).json({ message: "Name, DozentId und KursId sind erforderlich!" });
+    if (!vorlesungData.vorlesungId || !vorlesungData.kursId || !vorlesungData.titel || !vorlesungData.inhalt || !vorlesungData.dauer) {
+        return res.status(400).json({ message: "vorlesungId, kursId, titel, inhalt und dauer sind erforderlich!" });
     }
 
-    const newEntry = {
-        id: db.data.vorlesungen.length + 1,
-        ...newVorlesung,
-        erstelltAm: new Date().toISOString()
+    const newVorlesung = {
+        vorlesungId: vorlesungData.vorlesungId,
+        kursId: vorlesungData.kursId,
+        titel: vorlesungData.titel,
+        inhalt: vorlesungData.inhalt,
+        dauer: vorlesungData.dauer
     };
 
-    db.data.vorlesungen.push(newEntry);
+    db.data.vorlesungen.push(newVorlesung);
     await db.write();
-    res.json(newEntry);
+    res.json(newVorlesung);
 });
+
 
 router.put("/:id", async (req, res) => {
     await db.read();

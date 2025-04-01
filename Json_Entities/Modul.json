@@ -9,6 +9,16 @@
       "modulId": 105,
       "name": "Datenbanken",
       "reihenfolge": 1
+    },
+    {
+      "modulId": 102,
+      "name": "test I",
+      "reihenfolge": 8
+    },
+    {
+      "modulId": 105,
+      "name": "test I",
+      "reihenfolge": 2
     }
   ]
 }

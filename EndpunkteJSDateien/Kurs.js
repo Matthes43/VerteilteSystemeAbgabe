@@ -25,16 +25,21 @@ router.get("", async (req, res) => {
 
 router.post("", async (req, res) => {
     await db.read();
-    const senData = req.body;
+    const kursData = req.body;
 
-    if (!senData.task) {
-        return res.status(400).json({ message: "Task ist erforderlich!" });
+    if (!kursData.kursId || !kursData.modulId || !kursData.name || !kursData.startdatum || !kursData.enddatum || !kursData.schluessel || !kursData.status || kursData.anzahl === undefined) {
+        return res.status(400).json({ message: "kursId, modulId, name, startdatum, enddatum, schluessel, status und anzahl sind erforderlich!" });
     }
 
     const newKurs = {
-        id: db.data.module.length + 1,
-        task: senData.task,
-        completed: false
+        kursId: kursData.kursId,
+        modulId: kursData.modulId,
+        name: kursData.name,
+        startdatum: kursData.startdatum,
+        enddatum: kursData.enddatum,
+        schluessel: kursData.schluessel,
+        status: kursData.status,
+        anzahl: kursData.anzahl
     };
 
     db.data.kurse.push(newKurs);

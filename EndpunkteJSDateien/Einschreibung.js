@@ -25,21 +25,22 @@ router.get("", async (req, res) => {
 
 router.post("", async (req, res) => {
     await db.read();
-    const newEinschreibung = req.body;
+    const einschreibungData = req.body;
 
-    if (!newEinschreibung.studentId || !newEinschreibung.kursId) {
-        return res.status(400).json({ message: "StudentId und KursId sind erforderlich!" });
+    if (!einschreibungData.einschreibungsId || !einschreibungData.benutzerId || !einschreibungData.kursId || !einschreibungData.einschreibedatum) {
+        return res.status(400).json({ message: "einschreibungsId, benutzerId, kursId und einschreibedatum sind erforderlich!" });
     }
 
-    const newEntry = {
-        id: db.data.einschreibungen.length + 1,
-        ...newEinschreibung,
-        eingeschriebenAm: new Date().toISOString()
+    const newEinschreibung = {
+        einschreibungsId: einschreibungData.einschreibungsId,
+        benutzerId: einschreibungData.benutzerId,
+        kursId: einschreibungData.kursId,
+        einschreibedatum: einschreibungData.einschreibedatum
     };
 
-    db.data.einschreibungen.push(newEntry);
+    db.data.einschreibungen.push(newEinschreibung);
     await db.write();
-    res.json(newEntry);
+    res.json(newEinschreibung);
 });
 
 router.put("/:id", async (req, res) => {
