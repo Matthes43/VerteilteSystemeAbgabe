@@ -1,4 +1,5 @@
 import express from "express";
+import swaggerRoutes from "./swagger.js";
 import studentRoutes from "./EndpunkteJSDateien/Student.js";
 import dozentRoutes from "./EndpunkteJSDateien/Dozent.js";
 import benutzerRoutes from "./EndpunkteJSDateien/Benutzer.js";
@@ -19,6 +20,10 @@ import einschreibungRoutes from "./EndpunkteJSDateien/Einschreibung.js";
 const server = express();
 server.use(express.json());
 
+// Swagger-Dokumentation
+server.use("/docs", swaggerRoutes);
+
+// Endpunkte für die verschiedenen Routen
 server.use("/studenten", studentRoutes);
 server.use("/dozenten", dozentRoutes);
 server.use("/benutzer", benutzerRoutes);
@@ -37,5 +42,6 @@ server.use("/vorlesungen", vorlesungRoutes);
 server.use("/einschreibungen", einschreibungRoutes);
 
 server.listen(3000, () => {
-    console.log("Server listening...");
+    console.log("Server listening on http://localhost:3000");
+    console.log("Swagger Docs available at http://localhost:3000/docs");
 })

@@ -13,7 +13,7 @@ paths:
     get:
       summary: Alle Studenten abrufen
       responses:
-        '200':
+        "200":
           description: Liste aller Studenten
           content:
             application/json:
@@ -46,14 +46,52 @@ paths:
                 immatrikulationsTag:
                   type: string
       responses:
-        '201':
+        "201":
           description: Student erfolgreich hinzugefügt
+  /studenten/{studentId}:
+    delete:
+      summary: Einen Studenten löschen
+      parameters:
+        - name: studentId
+          in: path
+          required: true
+          description: ID des zu löschenden Studenten
+          schema:
+          type: integer
+      responses:
+      "200":
+        description: Student erfolgreich gelöscht
 
+    put:
+      summary: Einen Studenten aktualisieren
+      parameters:
+        - name: studentId
+          in: path
+          required: true
+          description: ID des zu aktualisierenden Studenten
+          schema:
+          type: integer
+      requestBody:
+      required: true
+      content:
+        application/json:
+        schema:
+          type: object
+          properties:
+          benutzerId:
+            type: integer
+          studiengang:
+            type: string
+          immatrikulationsTag:
+            type: string
+      responses:
+      "200":
+        description: Student erfolgreich aktualisiert
   /dozenten:
     get:
       summary: Alle Dozenten abrufen
       responses:
-        '200':
+        "200":
           description: Liste aller Dozenten
           content:
             application/json:
@@ -96,14 +134,57 @@ paths:
                       kursId:
                         type: integer
       responses:
-        '201':
+        "201":
           description: Dozent erfolgreich hinzugefügt
+  /dozenten/{dozentId}:
+    delete:
+      summary: Einen Dozenten löschen
+      parameters:
+        - name: dozentId
+          in: path
+          required: true
+          description: ID des zu löschenden Dozenten
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Dozent erfolgreich gelöscht
 
+    put:
+      summary: Einen Dozenten aktualisieren
+      parameters:
+        - name: dozentId
+          in: path
+          required: true
+          description: ID des zu aktualisierenden Dozenten
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                benutzerId:
+                  type: integer
+                fachgebiet:
+                  type: string
+                kurse:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      kursId:
+                        type: integer
+      responses:
+        "200":
+          description: Dozent erfolgreich aktualisiert
   /kurse:
     get:
       summary: Alle Kurse abrufen
       responses:
-        '200':
+        "200":
           description: Liste aller Kurse
           content:
             application/json:
@@ -152,14 +233,60 @@ paths:
                 anzahl:
                   type: integer
       responses:
-        '201':
+        "201":
           description: Kurs erfolgreich hinzugefügt
+  /kurse/{kursId}:
+    delete:
+      summary: Einen Kurs löschen
+      parameters:
+        - name: kursId
+          in: path
+          required: true
+          description: ID des zu löschenden Kurses
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Kurs erfolgreich gelöscht
 
+    put:
+      summary: Einen Kurs aktualisieren
+      parameters:
+        - name: kursId
+          in: path
+          required: true
+          description: ID des zu aktualisierenden Kurses
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                modulId:
+                  type: integer
+                name:
+                  type: string
+                startdatum:
+                  type: string
+                enddatum:
+                  type: string
+                schluessel:
+                  type: string
+                status:
+                  type: string
+                anzahl:
+                  type: integer
+      responses:
+        "200":
+          description: Kurs erfolgreich aktualisiert
   /evaluationen:
     get:
       summary: Alle Evaluationen abrufen
       responses:
-        '200':
+        "200":
           description: Liste aller Evaluationen
           content:
             application/json:
@@ -202,14 +329,58 @@ paths:
                       bewertung:
                         type: integer
       responses:
-        '201':
+        "201":
           description: Evaluation erfolgreich hinzugefügt
+  /evaluationen/{evaluationId}:
+    delete:
+      summary: Eine Evaluation löschen
+      parameters:
+        - name: evaluationId
+          in: path
+          required: true
+          description: ID der zu löschenden Evaluation
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Evaluation erfolgreich gelöscht
+
+    put:
+      summary: Eine Evaluation aktualisieren
+      parameters:
+        - name: evaluationId
+          in: path
+          required: true
+          description: ID der zu aktualisierenden Evaluation
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                studentId:
+                  type: integer
+                kurse:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      kursId:
+                        type: integer
+                      bewertung:
+                        type: integer
+      responses:
+        "200":
+          description: Evaluation erfolgreich aktualisiert
 
   /zertifikate:
     get:
       summary: Alle Zertifikate abrufen
       responses:
-        '200':
+        "200":
           description: Liste aller Zertifikate
           content:
             application/json:
@@ -234,14 +405,48 @@ paths:
                 kursId:
                   type: integer
       responses:
-        '201':
+        "201":
           description: Zertifikat erfolgreich hinzugefügt
+  /zertifikate/{zertifikatId}:
+    delete:
+      summary: Ein Zertifikat löschen
+      parameters:
+        - name: zertifikatId
+          in: path
+          required: true
+          description: ID des zu löschenden Zertifikats
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Zertifikat erfolgreich gelöscht
 
+    put:
+      summary: Ein Zertifikat aktualisieren
+      parameters:
+        - name: zertifikatId
+          in: path
+          required: true
+          description: ID des zu aktualisierenden Zertifikats
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                kursId:
+                  type: integer
+      responses:
+        "200":
+          description: Zertifikat erfolgreich aktualisiert
   /einschreibungen:
     get:
       summary: Alle Einschreibungen abrufen
       responses:
-        '200':
+        "200":
           description: Liste aller Einschreibungen
           content:
             application/json:
@@ -274,74 +479,160 @@ paths:
                 einschreibedatum:
                   type: string
       responses:
-        '201':
+        "201":
           description: Einschreibung erfolgreich hinzugefügt
-
-  /benutzer:
-      get:
-        summary: Alle Benutzer abrufen
-        responses:
-          '200':
-            description: Liste aller Benutzer
-            content:
-              application/json:
-                schema:
-                  type: array
-                  items:
-                    type: object
-                    properties:
-                      benutzerId:
-                        type: integer
-                      name:
-                        type: string
-                      vorname:
-                        type: string
-                      anmeldename:
-                        type: string
-                      email:
-                        type: string
-                      passwort:
-                        type: string
-                      anmeldedatum:
-                        type: string
-                      profilbild:
-                        type: string
-                      geschlecht:
-                        type: string
-      post:
-        summary: Einen neuen Benutzer hinzufügen
-        requestBody:
+  /einschreibungen/{einschreibungsId}:
+    delete:
+      summary: Eine Einschreibung löschen
+      parameters:
+        - name: einschreibungsId
+          in: path
           required: true
+          description: ID der zu löschenden Einschreibung
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Einschreibung erfolgreich gelöscht
+
+    put:
+      summary: Eine Einschreibung aktualisieren
+      parameters:
+        - name: einschreibungsId
+          in: path
+          required: true
+          description: ID der zu aktualisierenden Einschreibung
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                benutzerId:
+                  type: integer
+                kursId:
+                  type: integer
+                einschreibedatum:
+                  type: string
+      responses:
+        "200":
+          description: Einschreibung erfolgreich aktualisiert
+  /benutzer:
+    get:
+      summary: Alle Benutzer abrufen
+      responses:
+        "200":
+          description: Liste aller Benutzer
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  name:
-                    type: string
-                  vorname:
-                    type: string
-                  anmeldename:
-                    type: string
-                  email:
-                    type: string
-                  passwort:
-                    type: string
-                  anmeldedatum:
-                    type: string
-                  profilbild:
-                    type: string
-                  geschlecht:
-                    type: string
-        responses:
-          '201':
-            description: Benutzer erfolgreich hinzugefügt
+                type: array
+                items:
+                  type: object
+                  properties:
+                    benutzerId:
+                      type: integer
+                    name:
+                      type: string
+                    vorname:
+                      type: string
+                    anmeldename:
+                      type: string
+                    email:
+                      type: string
+                    passwort:
+                      type: string
+                    anmeldedatum:
+                      type: string
+                    profilbild:
+                      type: string
+                    geschlecht:
+                      type: string
+    post:
+      summary: Einen neuen Benutzer hinzufügen
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                vorname:
+                  type: string
+                anmeldename:
+                  type: string
+                email:
+                  type: string
+                passwort:
+                  type: string
+                anmeldedatum:
+                  type: string
+                profilbild:
+                  type: string
+                geschlecht:
+                  type: string
+      responses:
+        "201":
+          description: Benutzer erfolgreich hinzugefügt
+  /benutzer/{benutzerId}:
+    delete:
+      summary: Einen Benutzer löschen
+      parameters:
+        - name: benutzerId
+          in: path
+          required: true
+          description: ID des zu löschenden Benutzers
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Benutzer erfolgreich gelöscht
 
+    put:
+      summary: Einen Benutzer aktualisieren
+      parameters:
+        - name: benutzerId
+          in: path
+          required: true
+          description: ID des zu aktualisierenden Benutzers
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                vorname:
+                  type: string
+                anmeldename:
+                  type: string
+                email:
+                  type: string
+                passwort:
+                  type: string
+                anmeldedatum:
+                  type: string
+                profilbild:
+                  type: string
+                geschlecht:
+                  type: string
+      responses:
+        "200":
+          description: Benutzer erfolgreich aktualisiert
   /assignments:
     get:
       summary: Alle Assignments abrufen
       responses:
-        '200':
+        "200":
           description: Liste aller Assignments
           content:
             application/json:
@@ -370,14 +661,50 @@ paths:
                 beschreibung:
                   type: string
       responses:
-        '201':
+        "201":
           description: Assignment erfolgreich hinzugefügt
+  /assignments/{assignmentId}:
+    delete:
+      summary: Ein Assignment löschen
+      parameters:
+        - name: assignmentId
+          in: path
+          required: true
+          description: ID des zu löschenden Assignments
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Assignment erfolgreich gelöscht
 
+    put:
+      summary: Ein Assignment aktualisieren
+      parameters:
+        - name: assignmentId
+          in: path
+          required: true
+          description: ID des zu aktualisierenden Assignments
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                beschreibung:
+                  type: string
+      responses:
+        "200":
+          description: Assignment erfolgreich aktualisiert
   /aufgaben:
     get:
       summary: Alle Aufgaben abrufen
       responses:
-        '200':
+        "200":
           description: Liste aller Aufgaben
           content:
             application/json:
@@ -406,14 +733,50 @@ paths:
                 beschreibung:
                   type: string
       responses:
-        '201':
+        "201":
           description: Aufgabe erfolgreich hinzugefügt
+  /aufgaben/{aufgabeId}:
+    delete:
+      summary: Eine Aufgabe löschen
+      parameters:
+        - name: aufgabeId
+          in: path
+          required: true
+          description: ID der zu löschenden Aufgabe
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Aufgabe erfolgreich gelöscht
 
+    put:
+      summary: Eine Aufgabe aktualisieren
+      parameters:
+        - name: aufgabeId
+          in: path
+          required: true
+          description: ID der zu aktualisierenden Aufgabe
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                beschreibung:
+                  type: string
+      responses:
+        "200":
+          description: Aufgabe erfolgreich aktualisiert
   /benachrichtigungen:
     get:
       summary: Alle Benachrichtigungen abrufen
       responses:
-        '200':
+        "200":
           description: Liste aller Benachrichtigungen
           content:
             application/json:
@@ -446,14 +809,54 @@ paths:
                 nachricht:
                   type: string
       responses:
-        '201':
+        "201":
           description: Benachrichtigung erfolgreich hinzugefügt
+  /benachrichtigungen/{benachrichtigungId}:
+    delete:
+      summary: Eine Benachrichtigung löschen
+      parameters:
+        - name: benachrichtigungId
+          in: path
+          required: true
+          description: ID der zu löschenden Benachrichtigung
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Benachrichtigung erfolgreich gelöscht
 
+    put:
+      summary: Eine Benachrichtigung aktualisieren
+      parameters:
+        - name: benachrichtigungId
+          in: path
+          required: true
+          description: ID der zu aktualisierenden Benachrichtigung
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                titel:
+                  type: string
+                nachricht:
+                  type: string
+                datum:
+                  type: string
+                gelesen:
+                  type: boolean
+      responses:
+        "200":
+          description: Benachrichtigung erfolgreich aktualisiert
   /bewertungen:
     get:
       summary: Alle Bewertungen abrufen
       responses:
-        '200':
+        "200":
           description: Liste aller Bewertungen
           content:
             application/json:
@@ -486,14 +889,52 @@ paths:
                 punkte:
                   type: integer
       responses:
-        '201':
+        "201":
           description: Bewertung erfolgreich hinzugefügt
+  /bewertungen/{bewertungId}:
+    delete:
+      summary: Eine Bewertung löschen
+      parameters:
+        - name: bewertungId
+          in: path
+          required: true
+          description: ID der zu löschenden Bewertung
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Bewertung erfolgreich gelöscht
 
+    put:
+      summary: Eine Bewertung aktualisieren
+      parameters:
+        - name: bewertungId
+          in: path
+          required: true
+          description: ID der zu aktualisierenden Bewertung
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                studentId:
+                  type: integer
+                kursId:
+                  type: integer
+                punkte:
+                  type: integer
+      responses:
+        "200":
+          description: Bewertung erfolgreich aktualisiert
   /klausuren:
     get:
       summary: Alle Klausuren abrufen
       responses:
-        '200':
+        "200":
           description: Liste aller Klausuren
           content:
             application/json:
@@ -526,14 +967,52 @@ paths:
                 dauer:
                   type: string
       responses:
-        '201':
+        "201":
           description: Klausur erfolgreich hinzugefügt
+  /klausuren/{klausurId}:
+    delete:
+      summary: Eine Klausur löschen
+      parameters:
+        - name: klausurId
+          in: path
+          required: true
+          description: ID der zu löschenden Klausur
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Klausur erfolgreich gelöscht
 
+    put:
+      summary: Eine Klausur aktualisieren
+      parameters:
+        - name: klausurId
+          in: path
+          required: true
+          description: ID der zu aktualisierenden Klausur
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                kursId:
+                  type: integer
+                datum:
+                  type: string
+                dauer:
+                  type: string
+      responses:
+        "200":
+          description: Klausur erfolgreich aktualisiert
   /kursmaterialien:
     get:
       summary: Alle Kursmaterialien abrufen
       responses:
-        '200':
+        "200":
           description: Liste aller Kursmaterialien
           content:
             application/json:
@@ -568,14 +1047,52 @@ paths:
                 kursId:
                   type: integer
       responses:
-        '201':
+        "201":
           description: Kursmaterial erfolgreich hinzugefügt
+  /kursmaterialien/{materialId}:
+    delete:
+      summary: Kursmaterial löschen
+      parameters:
+        - name: materialId
+          in: path
+          required: true
+          description: ID des zu löschenden Kursmaterials
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Kursmaterial erfolgreich gelöscht
 
+    put:
+      summary: Kursmaterial aktualisieren
+      parameters:
+        - name: materialId
+          in: path
+          required: true
+          description: ID des zu aktualisierenden Kursmaterials
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                typ:
+                  type: string
+                kursId:
+                  type: integer
+      responses:
+        "200":
+          description: Kursmaterial erfolgreich aktualisiert
   /module:
     get:
       summary: Alle Module abrufen
       responses:
-        '200':
+        "200":
           description: Liste aller Module
           content:
             application/json:
@@ -604,14 +1121,50 @@ paths:
                 beschreibung:
                   type: string
       responses:
-        '201':
+        "201":
           description: Modul erfolgreich hinzugefügt
+  /module/{modulId}:
+    delete:
+      summary: Ein Modul löschen
+      parameters:
+        - name: modulId
+          in: path
+          required: true
+          description: ID des zu löschenden Moduls
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Modul erfolgreich gelöscht
 
+    put:
+      summary: Ein Modul aktualisieren
+      parameters:
+        - name: modulId
+          in: path
+          required: true
+          description: ID des zu aktualisierenden Moduls
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                beschreibung:
+                  type: string
+      responses:
+        "200":
+          description: Modul erfolgreich aktualisiert
   /systemadmins:
     get:
       summary: Alle Systemadministratoren abrufen
       responses:
-        '200':
+        "200":
           description: Liste aller Systemadministratoren
           content:
             application/json:
@@ -640,14 +1193,50 @@ paths:
                 email:
                   type: string
       responses:
-        '201':
+        "201":
           description: Systemadministrator erfolgreich hinzugefügt
+  /systemadmins/{adminId}:
+    delete:
+      summary: Einen Systemadministrator löschen
+      parameters:
+        - name: adminId
+          in: path
+          required: true
+          description: ID des zu löschenden Systemadministrators
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Systemadministrator erfolgreich gelöscht
 
+    put:
+      summary: Einen Systemadministrator aktualisieren
+      parameters:
+        - name: adminId
+          in: path
+          required: true
+          description: ID des zu aktualisierenden Systemadministrators
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                email:
+                  type: string
+      responses:
+        "200":
+          description: Systemadministrator erfolgreich aktualisiert
   /vorlesungen:
     get:
       summary: Alle Vorlesungen abrufen
       responses:
-        '200':
+        "200":
           description: Liste aller Vorlesungen
           content:
             application/json:
@@ -684,5 +1273,46 @@ paths:
                 dauer:
                   type: string
       responses:
-        '201':
+        "201":
           description: Vorlesung erfolgreich hinzugefügt
+  /vorlesungen/{vorlesungId}:
+    delete:
+      summary: Eine Vorlesung löschen
+      parameters:
+        - name: vorlesungId
+          in: path
+          required: true
+          description: ID der zu löschenden Vorlesung
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Vorlesung erfolgreich gelöscht
+
+    put:
+      summary: Eine Vorlesung aktualisieren
+      parameters:
+        - name: vorlesungId
+          in: path
+          required: true
+          description: ID der zu aktualisierenden Vorlesung
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                kursId:
+                  type: integer
+                titel:
+                  type: string
+                inhalt:
+                  type: string
+                dauer:
+                  type: string
+      responses:
+        "200":
+          description: Vorlesung erfolgreich aktualisiert

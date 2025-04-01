@@ -1,7 +1,9 @@
 {
   "dependencies": {
     "express": "^4.21.2",
-    "lowdb": "^7.0.1"
+    "lowdb": "^7.0.1",
+    "swagger-ui-express": "^5.0.1",
+    "yamljs": "^0.3.0"
   },
   "name": "projekt1",
   "version": "1.0.0",
