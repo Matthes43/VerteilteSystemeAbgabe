@@ -1,7 +1,12 @@
 {
     "Systemadmin": [
         {
-            
+            "systemadminId": 1,
+            "benutzerId": 1
+        },
+        {
+            "systemadminId": 2,
+            "benutzerId": 2
         }
     ]
 }
