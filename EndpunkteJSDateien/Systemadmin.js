@@ -25,16 +25,15 @@ router.get("", async (req, res) => {
 
 router.post("", async (req, res) => {
     await db.read();
-    const senData = req.body;
+    const systemadminData = req.body;
 
-    if (!senData.task) {
-        return res.status(400).json({ message: "Task ist erforderlich!" });
+    if (!systemadminData.systemadminId || !systemadminData.benutzerId) {
+        return res.status(400).json({ message: "systemadminId und benutzerId sind erforderlich!" });
     }
 
     const newSystemadmin = {
-        id: db.data.systemadmins.length + 1,
-        task: senData.task,
-        completed: false
+        systemadminId: systemadminData.systemadminId,
+        benutzerId: systemadminData.benutzerId
     };
 
     db.data.systemadmins.push(newSystemadmin);

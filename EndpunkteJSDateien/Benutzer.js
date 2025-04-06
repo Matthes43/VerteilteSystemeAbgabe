@@ -25,16 +25,22 @@ router.get("", async (req, res) => {
 
 router.post("", async (req, res) => {
     await db.read();
-    const senData = req.body;
+    const benutzerData = req.body;
 
-    if (!senData.task) {
-        return res.status(400).json({ message: "Task ist erforderlich!" });
+    if (!benutzerData.benutzerId || !benutzerData.name || !benutzerData.vorname || !benutzerData.anmeldename || !benutzerData.email || !benutzerData.passwort || !benutzerData.anmeldedatum || !benutzerData.profilbild || !benutzerData.geschlecht) {
+        return res.status(400).json({ message: "benutzerId, name, vorname, anmeldename, email, passwort, anmeldedatum, profilbild und geschlecht sind erforderlich!" });
     }
 
     const newBenutzer = {
-        id: db.data.studenten.length + 1,
-        task: senData.task,
-        completed: false
+        benutzerId: benutzerData.benutzerId,
+        name: benutzerData.name,
+        vorname: benutzerData.vorname,
+        anmeldename: benutzerData.anmeldename,
+        email: benutzerData.email,
+        passwort: benutzerData.passwort,
+        anmeldedatum: benutzerData.anmeldedatum,
+        profilbild: benutzerData.profilbild,
+        geschlecht: benutzerData.geschlecht
     };
 
     db.data.benutzer.push(newBenutzer);

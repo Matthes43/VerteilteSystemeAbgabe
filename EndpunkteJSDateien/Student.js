@@ -25,15 +25,17 @@ router.get("", async (req, res) => {
 
 router.post("", async (req, res) => {
     await db.read();
-    const senData = req.body;
+    const studentData = req.body;
 
-    if (!senData.task) {
-        return res.status(400).json({ message: "Task ist erforderlich!" });
+    if (!studentData.studentId || !studentData.benutzerId || !studentData.studiengang || !studentData.immatrikulationsTag) {
+        return res.status(400).json({ message: "studentId, benutzerId, studiengang und immatrikulationsTag sind erforderlich!" });
     }
 
     const newStudent = {
-        id: db.data.studenten.length + 1,
-        task: senData.task,
+        studentId: studentData.studentId,
+        benutzerId: studentData.benutzerId,
+        studiengang: studentData.studiengang,
+        immatrikulationsTag: studentData.immatrikulationsTag
     };
 
     db.data.studenten.push(newStudent);

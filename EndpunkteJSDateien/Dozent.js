@@ -25,16 +25,16 @@ router.get("", async (req, res) => {
 
 router.post("", async (req, res) => {
     await db.read();
-    const senData = req.body;
+    const dozentData = req.body;
 
-    if (!senData.task) {
-        return res.status(400).json({ message: "Task ist erforderlich!" });
+    if (!dozentData.dozentId || !dozentData.benutzerId || !dozentData.kurse) {
+        return res.status(400).json({ message: "dozentId, benutzerId und kurse sind erforderlich!" });
     }
 
     const newDozent = {
-        id: db.data.dozenten.length + 1,
-        task: senData.task,
-        completed: false
+        dozentId: studentData.dozentId,
+        benutzerId: studentData.benutzerId,
+        kurse: studentData.kurse
     };
 
     db.data.dozenten.push(newDozent);
