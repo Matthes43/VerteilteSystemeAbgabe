@@ -1,33 +1,32 @@
 {
   "evaluationen": [
     {
-      "evaluationId": 1,
+      "Id": 1,
       "studentId": 3,
       "kurse": []
     },
     {
-      "evaluationId": 2,
+      "Id": 2,
       "studentId": 4,
       "kurse": []
     },
     {
-      "evaluationId": 3,
+      "Id": 3,
       "studentId": 5,
       "kurse": []
     },
     {
-      "evaluationId": 4,
+      "Id": 4,
       "studentId": 6,
       "kurse": []
     },
     {
-      "evaluationId": 5,
+      "Id": 5,
       "studentId": 7,
       "kurse": []
     },
     {
-      "id": 6,
-      "evaluationId": 6,
+      "Id": 6,
       "studentId": 8,
       "kurse": [
         {

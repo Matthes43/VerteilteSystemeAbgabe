@@ -1,13 +1,13 @@
 {
   "bewertungen": [
     {
-      "bewertungsId": 341,
+      "Id": 341,
       "klausurId": 20,
       "assignmentId": 1,
       "benutzerId": 1
     },
     {
-      "bewertungsId": 525,
+      "Id": 525,
       "klausurId": 35,
       "assignmentId": 5,
       "benutzerId": 2

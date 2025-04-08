@@ -1,12 +1,12 @@
 {
   "module": [
     {
-      "modulId": 101,
+      "Id": 101,
       "name": "Methoden der Wirtschaftsinformatik I",
       "reihenfolge": 6
     },
     {
-      "modulId": 102,
+      "Id": 102,
       "name": "test I",
       "reihenfolge": 8
     }

@@ -1,14 +1,14 @@
 {
   "vorlesungen": [
     {
-      "vorlesungId": 1056,
+      "Id": 1056,
       "kursId": 1011,
       "titel": "Einführung in die Wirtschaftsinformatik",
       "inhalt": "Informationsmanagement, Modellierung, ERP-Systeme",
       "dauer": "150 Minuten"
     },
     {
-      "vorlesungId": 1092,
+      "Id": 1092,
       "kursId": 1051,
       "titel": "Datenbanken I",
       "inhalt": "SQL, Datendefinition und Datenabfrage",

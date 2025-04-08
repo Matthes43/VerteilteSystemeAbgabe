@@ -1,7 +1,7 @@
 {
   "benutzer": [
     {
-      "benutzerId": 1,
+      "Id": 1,
       "name": "Hammermeister",
       "vorname": "Nikita",
       "anmeldename": "hammermeister.ni.a23",
@@ -12,7 +12,7 @@
       "geschlecht": "männlich"
     },
     {
-      "benutzerId": 2,
+      "Id": 2,
       "name": "Friemann",
       "vorname": "Paul",
       "anmeldename": "friemann.paul.a23",

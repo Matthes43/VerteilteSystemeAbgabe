@@ -1,7 +1,7 @@
 {
   "dozenten": [
     {
-      "dozentId": 1,
+      "Id": 1,
       "benutzerId": 3,
       "kurse": [
         {
@@ -14,7 +14,7 @@
       "fachgebiet": "Verteilte Systeme"
     },
     {
-      "dozentId": 2,
+      "Id": 2,
       "benutzerId": 3,
       "kurse": [
         {

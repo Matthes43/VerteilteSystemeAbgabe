@@ -1,14 +1,14 @@
 {
   "assignments": [
     {
-      "assignmentId": 1,
+      "Id": 1,
       "kursId": 101,
       "titel": "SQL Abfragen in Datenbanken",
       "aufgabenstellung": "Schreiben Sie ein 5-6 Seitiges Assignment und beachten Sie dabei Grundsätze zum wissenschaftlichen Arbeiten.",
       "abgabefrist": "29.06.2025"
     },
     {
-      "assignmentId": 5,
+      "Id": 5,
       "kursId": 101,
       "titel": "Verschiedene Datenbanktypen",
       "aufgabenstellung": "Schreiben Sie ein 5-6 Seitiges Assignment und beachten Sie dabei Grundsätze zum wissenschaftlichen Arbeiten.",
