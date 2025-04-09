@@ -5,6 +5,19 @@ export function createCRUDRoutes(router, db, entityName) {
         res.json(db.data[entityName]);
     });
 
+    // GET: Ein Eintrag nach ID abrufen
+    router.get("/:id", async (req, res) => {
+        await db.read();
+        const itemId = parseInt(req.params.id);
+        const item = db.data[entityName].find(item => item.Id === itemId);
+
+        if (!item) {
+            return res.status(404).json({ message: `${entityName.slice(0, -1)} mit der ID ${itemId} nicht gefunden` });
+        }
+
+        res.json(item);
+    });
+
     // POST: Einen neuen Eintrag hinzufügen
     router.post("", async (req, res) => {
         await db.read();
@@ -40,7 +53,7 @@ export function createCRUDRoutes(router, db, entityName) {
     // DELETE: Einen Eintrag löschen
     router.delete("/:id", async (req, res) => {
         await db.read();
-        const itemId = parseInt(req.params.id); 
+        const itemId = parseInt(req.params.id);
         const initialLength = db.data[entityName].length;
 
         db.data[entityName] = db.data[entityName].filter(item => item.Id !== itemId);
