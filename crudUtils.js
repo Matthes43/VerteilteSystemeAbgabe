@@ -27,9 +27,12 @@ export function createCRUDRoutes(router, db, entityName) {
             newItem.Id = db.data[entityName].length + 1; // Automatische ID-Zuweisung
         }
 
-        db.data[entityName].push(newItem);
+        // Neues Objekt erstellen, um die Reihenfolge der Eigenschaften zu garantieren
+        const orderedItem = { Id: newItem.Id, ...newItem };
+
+        db.data[entityName].push(orderedItem);
         await db.write();
-        res.status(201).json(newItem);
+        res.status(201).json(orderedItem);
     });
 
     // PUT: Einen bestehenden Eintrag aktualisieren
